@@ -17,3 +17,29 @@ class ViewController: UIViewController {
 
 }
 
+#if DEBUG
+import SwiftUI
+struct ViewControllerRepresentable: UIViewControllerRepresentable
+{
+    //update
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        
+    }
+    
+    //makeUI
+    @available(iOS 13.0, *)
+    func makeUIViewController(context: Context) -> some UIViewController {
+        ViewController()
+    }
+ 
+}
+
+struct ViewController_Previews: PreviewProvider{
+    static var previews: some View{
+        ViewControllerRepresentable()
+            .ignoresSafeArea()
+            .previewDisplayName("iPhone 14 Pro")
+    }
+    
+}
+#endif
