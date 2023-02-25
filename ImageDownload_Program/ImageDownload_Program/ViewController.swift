@@ -6,17 +6,29 @@
 //
 
 import UIKit
+import SnapKit
 
 class ViewController: UIViewController {
 
+    private let mainView = MainView()
+
+    
+    override func loadView() {
+        super.loadView()
+        view = mainView
+      }
     override func viewDidLoad() {
         super.viewDidLoad()
+   
         // Do any additional setup after loading the view.
     }
-
+}
+// MARK: UI & Action
+extension ViewController{
 
 }
 
+// MARK: SwiftUI Preview
 #if DEBUG
 import SwiftUI
 struct ViewControllerRepresentable: UIViewControllerRepresentable
