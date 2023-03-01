@@ -9,33 +9,30 @@ import UIKit
 import SnapKit
 
 class ViewController: UIViewController {
-
     private let mainView = MainView()
-
+    
     override func loadView() {
         super.loadView()
         view = mainView
-      }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         bindButton()
         // Do any additional setup after loading the view.
     }
-    
 }
 
 // MARK: UI & Action
 extension ViewController{
     private func bindButton() {
         mainView.loadAllImagesButton.addTarget(self, action: #selector(didTapAllButton), for: .touchUpInside)
-     }
+    }
     
     @objc func didTapAllButton() {
         mainView.contentViews.forEach {
             $0.didTapButton()
         }
     }
-    
 }
 
 // MARK: SwiftUI Preview
@@ -45,15 +42,12 @@ struct ViewControllerRepresentable: UIViewControllerRepresentable
 {
     //update
     func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        
     }
-    
     //makeUI
     @available(iOS 13.0, *)
     func makeUIViewController(context: Context) -> some UIViewController {
         ViewController()
     }
- 
 }
 
 struct ViewController_Previews: PreviewProvider{
@@ -62,6 +56,5 @@ struct ViewController_Previews: PreviewProvider{
             .ignoresSafeArea()
             .previewDisplayName("iPhone 14 Pro")
     }
-    
 }
 #endif

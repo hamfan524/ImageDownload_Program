@@ -2,7 +2,7 @@
 //  Helper.swift
 //  ImageDownload_Program
 //
-//  Created by 최동호 on 2023/03/01.
+//  Created by 최동호 on 2023/02/28.
 //
 
 import Foundation
