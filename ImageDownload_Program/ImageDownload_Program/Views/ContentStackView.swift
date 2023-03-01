@@ -9,7 +9,6 @@ import UIKit
 import SnapKit
 
 class ContentStackView: UIStackView{
-    
     var isLoaded = false
     var imageURL = ""
     
@@ -35,7 +34,10 @@ class ContentStackView: UIStackView{
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+// MARK: UI & Action
+extension ContentStackView{
     private func setupView() {
         backgroundColor = .systemBackground
         axis = .horizontal
@@ -55,33 +57,30 @@ class ContentStackView: UIStackView{
         }
         loadButton.snp.makeConstraints { make in
             make.width.equalToSuperview().multipliedBy(0.2)
+            make.height.equalTo(loadButton.snp.width).multipliedBy(0.45)
         }
     }
     
     @objc func didTapButton() {
         if !isLoaded {
-            guard let url = URL(string: imageURL) else {
-                return
-            }
-
-            let request = URLRequest(url: url)
-
-            URLSession.shared.dataTask(with: request) { data, _, error in
-                guard let data = data, error == nil else {
+            guard let url = URL(string: imageURL) else { return }
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: url)  { data, response, error in
+                if error != nil {
+                    print(error!)
                     return
                 }
-
+                guard let data = data else { return }
                 let image = UIImage(data: data)
                 DispatchQueue.main.async { [weak self] in
                     self?.downloadImageView.image = image
                 }
-            }.resume()
+            }
+            task.resume()
             isLoaded = true
         } else {
             self.downloadImageView.image = UIImage(systemName: "photo")
             isLoaded = false
         }
     }
-    
 }
-
