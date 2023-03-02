@@ -4,9 +4,6 @@
 //
 //  Created by 최동호 on 2023/02/28.
 //
-
-import Foundation
-
 struct ImageURLs{
     let imageURLs = [
         "https://wallpaperaccess.com/download/europe-4k-1369012",
