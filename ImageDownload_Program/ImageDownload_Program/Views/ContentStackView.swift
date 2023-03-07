@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 class ContentStackView: UIStackView{
     var isLoaded = false
@@ -14,12 +13,14 @@ class ContentStackView: UIStackView{
     
     var downloadImageView: UIImageView = {
         let image = UIImageView(image: UIImage(systemName: "photo"))
+        image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
     let progressView: UIProgressView = {
         let progressView = UIProgressView()
         progressView.progress = 0.5
+        progressView.translatesAutoresizingMaskIntoConstraints = false
         return progressView
     }()
     
@@ -27,6 +28,7 @@ class ContentStackView: UIStackView{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         setupView()
         setConstraints()
     }
@@ -52,13 +54,13 @@ extension ContentStackView{
     }
     
     private func setConstraints(){
-        downloadImageView.snp.makeConstraints { make in
-            make.width.equalTo(downloadImageView.snp.height).multipliedBy(1.5)
-        }
-        loadButton.snp.makeConstraints { make in
-            make.width.equalToSuperview().multipliedBy(0.2)
-            make.height.equalTo(loadButton.snp.width).multipliedBy(0.45)
-        }
+        
+        NSLayoutConstraint.activate([
+            downloadImageView.widthAnchor.constraint(equalTo: downloadImageView.heightAnchor, multiplier: 1.5),
+            loadButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.2),
+            loadButton.heightAnchor.constraint(equalTo: loadButton.widthAnchor, multiplier: 0.45)
+        ])
+        
     }
     
     @objc func didTapButton() {

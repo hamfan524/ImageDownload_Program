@@ -10,6 +10,7 @@ import UIKit
 class LoadButton: UIButton{
     init(frame: CGRect, titleName: String) {
         super.init(frame: frame)
+        translatesAutoresizingMaskIntoConstraints = false
         setTitleColor(.white, for: .normal)
         backgroundColor = .systemBlue
         layer.cornerRadius = 5

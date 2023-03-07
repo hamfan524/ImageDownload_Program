@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 final class MainView: UIView{
     let contentViews = (1...ImageURLs().imageURLs.count).map { _ in ContentStackView() }
@@ -19,6 +18,7 @@ final class MainView: UIView{
         stackView.alignment = .fill
         stackView.distribution = .fill
         stackView.spacing = 15
+        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -44,22 +44,21 @@ extension MainView{
     }
     
     private func setConstraints(){
-        mainStackView.snp.makeConstraints { make in
-            make.centerX.equalTo(snp.centerX)
-            make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(20)
-            make.width.equalTo(safeAreaLayoutGuide.snp.width).multipliedBy(0.9)
-        }
+        
+        NSLayoutConstraint.activate([
+            mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+            mainStackView.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            loadAllImagesButton.topAnchor.constraint(equalTo: mainStackView.bottomAnchor, constant: 10),
+            loadAllImagesButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadAllImagesButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
+            loadAllImagesButton.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.05)
+        ])
+        
         contentViews.forEach{
-            $0.arrangedSubviews[0].snp.makeConstraints { make in
-                make.height.equalTo(safeAreaLayoutGuide.snp.height).multipliedBy(0.125)
-            }
+            $0.arrangedSubviews[0].heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125).isActive = true
         }
-        loadAllImagesButton.snp.makeConstraints { make in
-            make.top.equalTo(mainStackView.snp.bottom).offset(10)
-            make.centerX.equalTo(snp.centerX)
-            make.width.equalTo(safeAreaLayoutGuide.snp.width).multipliedBy(0.9)
-            make.height.equalTo(safeAreaLayoutGuide.snp.height).multipliedBy(0.05)
-        }
+        
         for i in urlRange{
             contentViews[i].imageURL = urls[i]
         }
