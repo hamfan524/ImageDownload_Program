@@ -10,7 +10,6 @@
 		4143BC9829AFBF4B00CF364D /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4143BC9729AFBF4B00CF364D /* UIButton+.swift */; };
 		417ECB9029AF4BCB006C43AE /* ContentStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417ECB8F29AF4BCB006C43AE /* ContentStackView.swift */; };
 		417ECB9229AF5CAC006C43AE /* ImageURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417ECB9129AF5CAC006C43AE /* ImageURLs.swift */; };
-		4191192229A7D66000C30F66 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4191192129A7D66000C30F66 /* SnapKit */; };
 		4196535D29AD387200729BBA /* LoadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4196535C29AD387200729BBA /* LoadButton.swift */; };
 		419D89DD29A5E90A00CBC2DD /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419D89DC29A5E90A00CBC2DD /* MainView.swift */; };
 		41ACD69929A538AB00D2FC9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41ACD69829A538AB00D2FC9F /* AppDelegate.swift */; };
@@ -40,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4191192229A7D66000C30F66 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +136,6 @@
 			);
 			name = ImageDownload_Program;
 			packageProductDependencies = (
-				4191192129A7D66000C30F66 /* SnapKit */,
 			);
 			productName = ImageDownload_Program;
 			productReference = 41ACD69529A538AB00D2FC9F /* ImageDownload_Program.app */;
@@ -169,7 +166,6 @@
 			);
 			mainGroup = 41ACD68C29A538AB00D2FC9F;
 			packageReferences = (
-				4191192029A7D66000C30F66 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 41ACD69629A538AB00D2FC9F /* Products */;
 			projectDirPath = "";
@@ -414,25 +410,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		4191192029A7D66000C30F66 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		4191192129A7D66000C30F66 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 4191192029A7D66000C30F66 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 41ACD68D29A538AB00D2FC9F /* Project object */;
 }
