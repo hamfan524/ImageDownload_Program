@@ -15,7 +15,6 @@
 ## 💻 개발환경 및 라이브러리
 [![swift](https://img.shields.io/badge/swift-5.7.2-orange)]()
 [![xcode](https://img.shields.io/badge/Xcode-14.2-blue)]()
-[![SnapKit](https://img.shields.io/badge/SnapKit-5.0.0-white)]()
 
 ## 🌲 Tree
 ```
