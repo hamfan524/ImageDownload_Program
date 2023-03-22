@@ -48,4 +48,8 @@
 
 |개별 이미지 로드|전체 이미지 로드|
 |:--:|:--:|
-|![LoadImages](https://user-images.githubusercontent.com/37105602/222505657-79e8923d-9084-4f82-b4ab-dc4774b2b0c3.gif)|![LoadAllImages](https://user-images.githubusercontent.com/37105602/222505755-af6022f5-8232-40b6-b733-b93e5e3b7af2.gif)|
+|![load](https://user-images.githubusercontent.com/37105602/226990528-23bd2bbf-86ed-430f-b014-194d6382a2db.gif)|![LoadAll](https://user-images.githubusercontent.com/37105602/226990610-9c3d33a8-6e43-4b8d-8d75-b5d545a0948f.gif)|
+
+|이미지 로드 중단|전체 이미지 로드 중단|
+|:--:|:--:|
+|![stop](https://user-images.githubusercontent.com/37105602/226990967-e9c4453b-3c66-4780-9d45-0722e21565a7.gif)|![stopAll](https://user-images.githubusercontent.com/37105602/226991087-3978d7f9-d222-459f-ab45-be8799a66d01.gif)|
