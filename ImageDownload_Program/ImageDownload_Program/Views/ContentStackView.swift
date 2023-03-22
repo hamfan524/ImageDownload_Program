@@ -98,6 +98,7 @@ extension ContentStackView{
             }
             DispatchQueue.main.async { [weak self] in
                 self?.downloadImageView.image = image
+                self?.loadButton.isSelected = false
             }
         }
         
