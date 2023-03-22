@@ -4,11 +4,19 @@
 //
 //  Created by 최동호 on 2023/02/28.
 //
-struct ImageURLs{
-    let imageURLs = [
-        "https://wallpaperaccess.com/download/europe-4k-1369012",
-        "https://wallpaperaccess.com/download/europe-4k-1318341",
-        "https://wallpaperaccess.com/download/europe-4k-1379801",
-        "https://wallpaperaccess.com/download/cool-lion-167408",
-        "https://wallpaperaccess.com/download/ironman-hd-323408"]
+
+import Foundation
+
+enum ImageURL {
+    static let imageIds: [String] = [
+        "europe-4k-1369012",
+        "europe-4k-1318341",
+        "europe-4k-1379801",
+        "cool-lion-167408",
+        "ironman-hd-323408"
+    ]
+    static subscript(index: Int) -> URL {
+        let id = imageIds[index]
+        return URL(string: "https://wallpaperaccess.com/download/"+id)!
+    }
 }
