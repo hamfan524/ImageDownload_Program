@@ -8,9 +8,8 @@
 import UIKit
 
 final class MainView: UIView{
-    let contentViews = (1...ImageURLs().imageURLs.count).map { _ in ContentStackView() }
-    let urls = ImageURLs().imageURLs
-    let urlRange = 0...(ImageURLs().imageURLs.count - 1)
+    let contentViews = (1...ImageURL.imageIds.count).map { _ in ContentStackView() }
+    let urlRange = 0...(ImageURL.imageIds.count - 1)
     
     lazy var mainStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: contentViews)
@@ -44,7 +43,6 @@ extension MainView{
     }
     
     private func setConstraints(){
-        
         NSLayoutConstraint.activate([
             mainStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             mainStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -54,13 +52,11 @@ extension MainView{
             loadAllImagesButton.widthAnchor.constraint(equalTo: safeAreaLayoutGuide.widthAnchor, multiplier: 0.9),
             loadAllImagesButton.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.05)
         ])
-        
         contentViews.forEach{
             $0.arrangedSubviews[0].heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.125).isActive = true
         }
-        
         for i in urlRange{
-            contentViews[i].imageURL = urls[i]
+            contentViews[i].index = i
         }
     }
 }
