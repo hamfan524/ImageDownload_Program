@@ -15,6 +15,7 @@ class LoadButton: UIButton{
         backgroundColor = .systemBlue
         layer.cornerRadius = 5
         setTitle(titleName, for: .normal)
+        setTitle("Stop", for: .selected)
         setBackgroundColor(.white.withAlphaComponent(0.5), for: .highlighted)
     }
     @available(*, unavailable)
